@@ -1,0 +1,9 @@
+<p>Total User Count: <%=  @result[:total_records] %><p>
+<p>Added User Count: <%= @result[:success_count] %></p>
+<p>Failed User Count: <%= @result[:failed_records_count] %><p>
+<p>Failed Record Details:<p/>
+<ol>
+  <% @result[:failed_records].each do |msg| %>
+  <li><%= msg %></li>
+  <% end %>
+</ol>

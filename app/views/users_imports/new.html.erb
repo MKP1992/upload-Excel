@@ -1,0 +1,27 @@
+<p id="notice"><%= notice.try(:html_safe) %></p>
+<p id="alert"><%= alert %></p>
+
+<h1>Import User From Excel</h1>
+
+
+
+<h5>Select File</h5>
+<%= form_for @users_import do |f| %>
+  <% if @users_import.errors.any? %>
+    <%= pluralize(@users_import.errors.count, "error") %> prevented us from
+    importing your spreadsheet. Please update your spreadsheet and try agin.
+    <ul>
+      <% @users_import.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= f.file_field :file %>
+  <%= f.submit "Import File" %>
+<% end %>
+
+<br>
+
+<%= link_to 'User', users_path %>
+<br/>
