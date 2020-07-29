@@ -19,7 +19,6 @@ class UsersImport
   def open_spreadsheet
     case File.extname(file.original_filename)
     when ".csv" then Csv.new(file.path, nil, :ignore)
-    when ".xls" then Roo::Excel.new(file.path, extension: :xlsx)
     when ".xlsx" then Roo::Excelx.new(file.path)
     else raise "Unknown file type: #{file.original_filename}"
     end
